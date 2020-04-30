@@ -57,15 +57,14 @@ def layout_guess_word(random_word):         #make the layout (spaces) for the gu
 def making_right_guess (tried_words):       #restrain the user to put the right inputs
     check_guess = input("Please, enter your letter : ").strip().upper()
     while(True):
-        for char in check_guess:
-            if (not char.isalpha() or (len(check_guess) > 1)):   #checking if it's a letter
+        if (not check_guess.isalpha() or (len(check_guess) > 1)):   #checking if it's a letter
                 print("Wrong input!!")
                 check_guess = input("Please, enter your letter : ").strip().upper()
-            elif(check_guess in tried_words):                   #checking if the letter has already been used
+        elif(check_guess in tried_words):                   #checking if the letter has already been used
                 print("You have already entered this!! ")
                 check_guess = input("Please, enter your letter : ").strip().upper()
-            elif (len(check_guess) > 0):
-                return check_guess
+        elif (len(check_guess) > 0):
+            return check_guess
 
 def death_message(random_word):  #the print for the loser
     print("Sorry, you have been hanged!")
